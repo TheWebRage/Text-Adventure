@@ -1,0 +1,20 @@
+WELCOME TO TEXT ADVENTURE!
+
+In this game you can navigate through a house with many rooms including a 
+foyer, a parlor, a library, a kitchen, and a pantry.
+
+The rooms contain items that you can add to your inventory. The library has 
+a ghost that you can talk to. And in the pantry you have to fight a monster.
+
+Here are the basic commands:
+enter [room name] : to enter a specified room
+map : draws a map of the house
+quit : to quit the game
+inventory : lists your inventory
+items : lists the items in a room
+take [item] : take the specified item
+take all items : puts all items in the room into your inventory
+conversation : output a record of your conversation
+fight : fight any monsters in that room
+
+Now have a great adventure!

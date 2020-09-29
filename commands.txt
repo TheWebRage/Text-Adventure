@@ -1,0 +1,2 @@
+Enter a command like 'enter [room name]', 'inventory', 'take all items', 
+'take [item]', 'items', 'conversation', 'fight', 'map', 'quit': 
