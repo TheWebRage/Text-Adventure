@@ -2,13 +2,16 @@ print(open('game_instructions.txt', 'r').read())
 map_text = open('map.txt', 'r').read()
 list_commands = open('commands.txt', 'r').read()
 
+ghost_convo = ''
+
+
 player = {
     'inventory': [],
     'inventory_room': 5,
     'location': 'foyer',
     'is_fighting': False,
     'health': 50,
-    'attack': 5,
+    'attack': 10,
 }
 
 rooms = {
@@ -32,7 +35,6 @@ rooms = {
     },
     'library': {
         'description': 'A room with many books to read for both entertainment and learning. You see a ghost that wants to talk.',
-        # TODO: expand this into a user type section and save the output to a file?
         'conversation': 'library-ghost-convo.txt',
         'items': [
             {
@@ -105,8 +107,23 @@ while True:
             print('No items in inventory')
 
     elif user_command.lower() == 'conversation':
-        if 'conversation' in rooms[player['location']]:
-            print(open(rooms[player['location']]['conversation'], 'r').read())
+        if ghost_convo != '':
+            print('This was the conversation you had with the ghost:')
+            print(ghost_convo)
+
+        elif 'conversation' in rooms[player['location']]:
+            with open(rooms[player['location']]['conversation'], 'r+') as my_file:
+                convo_array = my_file.readlines()
+
+            user_convo = ''
+            print(convo_array[0])
+            ghost_convo += convo_array[0]
+            while user_convo != 'stop':
+                user_convo = input('Adventurer: ')
+                ghost_convo += user_convo + '\n'
+                print(convo_array[1])
+                ghost_convo += convo_array[1] + '\n'
+
         else: 
             print('Nothing to talk to in here.')
 
@@ -143,9 +160,9 @@ while True:
                     print('Health: ' + str(monster['health']))
                     print('Status: ' + monster['status'])
                     print('\nYour Health: ' + str(player['health']))
-                    attack_command = input("\nEnter a command like 'attack', 'hypnosis', 'inventory', or 'use [item]': ")
+                    attack_command = input("\nEnter a command like 'karate-chop', 'hypnosis', 'inventory', or 'use [item]': ")
 
-                    if attack_command.lower() == 'attack':
+                    if attack_command.lower() == 'karate-chop':
                         monster['health'] -= player['attack']
                     
                     elif attack_command.lower() == 'inventory':
@@ -199,6 +216,7 @@ while True:
         if command[0] == 'enter' and len(command) < 3:
             if command[1] in rooms[player['location']]['exits']:
                 player['location'] = command[1]
+                print('You have moved to ' + command[1])
             else:
                 print('Cannot enter that room from this room!')
 

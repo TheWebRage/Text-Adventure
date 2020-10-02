@@ -1,4 +1,2 @@
-Ghost: Talk to me
-Adventurer: Hello Ghost!!!!!!
+Ghost: Talk to me (type 'stop' to stop talking)
 Ghost: That's interesting talk to me some more
-Adventurer: I bet your name is Caspar!!!!

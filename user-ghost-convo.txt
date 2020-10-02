@@ -1,0 +1,9 @@
+Ghost: Talk to me (type 'stop' to stop talking)
+Text
+Ghost: That's interesting talk to me some moreMore text
+Ghost: That's interesting talk to me some morestop
+Ghost: That's interesting talk to me some moreGhost: Talk to me (type 'stop' to stop talking)
+conversation
+Ghost: Talk to me (type 'stop' to stop talking)
+& C:/Users/einnu/AppData/Local/Programs/Python/Python38-32/python.exe c:/Users/einnu/Documents/Notes/web3200/Text-Adventure/main.py
+Ghost: That's interesting talk to me some more
